@@ -35,6 +35,7 @@ public class Piku_Manager : MonoBehaviour
         float spawnPosZ = Random.value * spawnZoneSize.z - (spawnZoneSize.z / 2);
 
         spawnPos = new Vector3(spawnPosX, spawnPosY, spawnPosZ);
+        spawnZoneCenter = spawnZone.GetComponent<Collider>().bounds.center;
         var newPiku = Instantiate(pikuPrefab, spawnPos + spawnZoneCenter, Quaternion.identity);
         newPiku.transform.parent = pikuZone;
         var rB = newPiku.GetComponent<Rigidbody>();

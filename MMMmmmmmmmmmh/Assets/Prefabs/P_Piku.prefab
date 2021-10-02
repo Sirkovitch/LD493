@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationTime: 0.2
-  moveTime: 4
+  moveTime: 2
   offsetMult: 2
 --- !u!65 &2713433442951752381
 BoxCollider:

@@ -10,7 +10,7 @@ public class Plane_Manager : MonoBehaviour
     private Vector3 spawnZoneSize;
     private float playArea;
     private float globalPos;
-    private float tiltValue;
+    public float tiltValue;
     private float rotationDegree = 0;
 
     void Start()
@@ -34,8 +34,13 @@ public class Plane_Manager : MonoBehaviour
             tiltValue = -tiltValue;
             globalPos = 0;
         }
-        //this.transform.eulerAngles = new Vector3(this.transform.eulerAngles.x, this.transform.eulerAngles.y, Mathf.Lerp(this.transform.eulerAngles.z, tiltValue * 80, 0.01f));
-        rotationDegree = Mathf.Lerp(rotationDegree, tiltValue, 0.005f);
+        
+        var lerpValue = 0.02f;
+        lerpValue = Mathf.Lerp(0.0000001f, 0.5f, (pikus.Length - 1) / 25);
+        var rotateValue = tiltValue;
+         rotateValue = Mathf.Lerp(tiltValue*0.5f,tiltValue, (pikus.Length - 1) / 25);
+
+        rotationDegree = Mathf.Lerp(rotationDegree, rotateValue, lerpValue);
         this.transform.Rotate(0, 0, tiltValue, Space.Self);
     }
 }
