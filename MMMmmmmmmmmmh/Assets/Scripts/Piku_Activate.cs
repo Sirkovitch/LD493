@@ -7,6 +7,8 @@ public class Piku_Activate : MonoBehaviour
     public float activationTime = 0.2f;
     public float moveTime = 4;
     public float offsetMult = 2;
+    public Material[] materials;
+    public Renderer renderer;
 
     bool canCollide = false;
     bool canMove = false;
@@ -17,6 +19,8 @@ public class Piku_Activate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        renderer.material = materials[Random.Range(0, materials.Length)];
+        
         destination = GameObject.Find("PikuDestination").GetComponent<Transform>();
         
         randPos = (Random.value * 2) - 1;
