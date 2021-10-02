@@ -39,6 +39,7 @@ public class Piku_Activate : MonoBehaviour
         if (col.tag == "EndZone")
         {
             transform.GetComponent<Rigidbody>().isKinematic = false;
+            transform.GetComponent<BoxCollider>().isTrigger = false;
             canMove = false;
             transform.parent = null;
         }

@@ -11,6 +11,7 @@ public class Plane_Manager : MonoBehaviour
     private float playArea;
     private float globalPos;
     private float tiltValue;
+    private float rotationDegree = 0;
 
     void Start()
     {
@@ -33,6 +34,8 @@ public class Plane_Manager : MonoBehaviour
             tiltValue = -tiltValue;
             globalPos = 0;
         }
-        this.transform.eulerAngles = new Vector3(this.transform.eulerAngles.x, this.transform.eulerAngles.y, Mathf.Lerp(this.transform.eulerAngles.z, tiltValue * 80, 0.01f));
+        //this.transform.eulerAngles = new Vector3(this.transform.eulerAngles.x, this.transform.eulerAngles.y, Mathf.Lerp(this.transform.eulerAngles.z, tiltValue * 80, 0.01f));
+        rotationDegree = Mathf.Lerp(rotationDegree, tiltValue, 0.005f);
+        this.transform.Rotate(0, 0, tiltValue, Space.Self);
     }
 }
