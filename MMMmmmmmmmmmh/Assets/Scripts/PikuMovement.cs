@@ -20,7 +20,7 @@ public class PikuMovement : MonoBehaviour
     void Update()
     {
 
-        var planeAngle = plane.transform.localRotation.z*2;
+        var planeAngle = plane.transform.localRotation.z*1.5f;
 
         if (planeAngle >= 0)
         {
@@ -32,8 +32,9 @@ public class PikuMovement : MonoBehaviour
 
         }
 
+        planeAngle = plane.transform.localRotation.z * 2;
 
-        transform.localPosition = new Vector3(transform.localPosition.x - planeAngle*0.01f, transform.localPosition.y, transform.localPosition.z);
+        transform.localPosition = new Vector3(transform.localPosition.x - planeAngle*0.02f, transform.localPosition.y, transform.localPosition.z);
 
         if (Input.GetButton("Left"))
         {

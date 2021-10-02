@@ -12,6 +12,7 @@ public class Piku_Manager : MonoBehaviour
     public float initForceValueY = 10;
     public Animator trap;
 
+    public bool allPiku = false;
     private Vector3 spawnZoneSize, spawnPos, spawnZoneCenter;
     private int spawnedPiku = 0;
 
@@ -49,6 +50,7 @@ public class Piku_Manager : MonoBehaviour
         {
             CancelInvoke();
             trap.SetBool("Open", false);
+            allPiku = true;
         }
     }
 }

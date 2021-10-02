@@ -9,21 +9,24 @@ public class Plane_Manager : MonoBehaviour
 
     private Vector3 spawnZoneSize;
     private float playArea;
-    private float globalPos;
+    private float globalPos = 0;
     public float tiltValue;
     private float rotationDegree = 0;
+    private Vector3 velocity;
+    private Piku_Manager pikuManager;
 
     void Start()
     {
         spawnZoneSize = wingArea.bounds.size;
         playArea = spawnZoneSize.x / 2;
         tiltValue = 0;
+        pikuManager = GameObject.Find("Piku_Manager").GetComponent<Piku_Manager>();
     }
 
     void Update()
     {
         Transform[] pikus = pikuParent.transform.GetComponentsInChildren<Transform>();
-        if (pikus.Length > 1)
+        if (pikus.Length > 1 && pikuManager.allPiku == true)
         {
             foreach (Transform piku in pikus)
             {
@@ -42,5 +45,8 @@ public class Plane_Manager : MonoBehaviour
 
         rotationDegree = Mathf.Lerp(rotationDegree, rotateValue, lerpValue);
         this.transform.Rotate(0, 0, tiltValue, Space.Self);
+
+        velocity = new Vector3(Mathf.Clamp(1-this.transform.localRotation.z*100,-50,10), -1, 20);
+        transform.Translate(velocity * Time.deltaTime, Space.World);
     }
 }
