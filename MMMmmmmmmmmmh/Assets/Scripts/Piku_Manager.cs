@@ -50,7 +50,13 @@ public class Piku_Manager : MonoBehaviour
         {
             CancelInvoke();
             trap.SetBool("Open", false);
-            allPiku = true;
+            StartCoroutine(startDelay(2f));
+
         }
+    }
+    IEnumerator startDelay(float time)
+    {
+        yield return new WaitForSeconds(time);
+        allPiku = true;
     }
 }

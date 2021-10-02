@@ -48,5 +48,17 @@ public class Plane_Manager : MonoBehaviour
 
         velocity = new Vector3(Mathf.Clamp(1-this.transform.localRotation.z*100,-50,10), -1, 20);
         transform.Translate(velocity * Time.deltaTime, Space.World);
+        
+        if (pikus.Length > 1 && pikuManager.allPiku == true)
+        {
+            foreach (Transform piku in pikus)
+            {
+                if (Mathf.Abs(this.transform.localRotation.z)>10)
+                    {
+                    piku.parent = null;
+                    }
+            }
+
+        }
     }
 }

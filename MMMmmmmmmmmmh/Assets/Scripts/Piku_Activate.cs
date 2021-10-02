@@ -22,7 +22,7 @@ public class Piku_Activate : MonoBehaviour
         randPos = (Random.value * 2) - 1;
         randPos = randPos * offsetMult;
 
-        randSpeed = Random.value * 0.2f;
+        randSpeed = Random.value * 0.4f;
 
         StartCoroutine(ActivateCol(activationTime));
         StartCoroutine(ActivateMov(moveTime));
