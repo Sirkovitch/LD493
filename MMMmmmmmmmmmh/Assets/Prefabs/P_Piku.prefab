@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationTime: 0.2
   moveTime: 3
-  offsetMult: 4
+  offsetMult: 3
 --- !u!65 &2713433442951752381
 BoxCollider:
   m_ObjectHideFlags: 0
