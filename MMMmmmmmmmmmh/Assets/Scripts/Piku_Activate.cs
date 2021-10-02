@@ -8,7 +8,8 @@ public class Piku_Activate : MonoBehaviour
     public float moveTime = 4;
     public float offsetMult = 2;
     public Material[] materials;
-    public Renderer renderer;
+    public Renderer rend;
+    public Animator anim;
 
     bool canCollide = false;
     bool canMove = false;
@@ -19,7 +20,7 @@ public class Piku_Activate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        renderer.material = materials[Random.Range(0, materials.Length)];
+        rend.material = materials[Random.Range(0, materials.Length)];
         
         destination = GameObject.Find("PikuDestination").GetComponent<Transform>();
         
@@ -53,6 +54,10 @@ public class Piku_Activate : MonoBehaviour
     {
         if (canMove == true)
         {
+            var direction = (destination.localPosition.x + randPos) - transform.localPosition.x;
+            anim.SetFloat("Blend", direction / 1);
+
+
             transform.localPosition = new Vector3(Mathf.Lerp(transform.localPosition.x,destination.localPosition.x+randPos,randSpeed), transform.localPosition.y, transform.localPosition.z);
 
         }
