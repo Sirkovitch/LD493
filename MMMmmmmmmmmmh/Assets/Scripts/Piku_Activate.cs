@@ -20,6 +20,10 @@ public class Piku_Activate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var randScale = Random.value * 0.4f;
+        this.transform.localScale = new Vector3(this.transform.localScale.x + randScale, this.transform.localScale.y + randScale, this.transform.localScale.z + randScale);
+
+
         rend.material = materials[Random.Range(0, materials.Length)];
         
         destination = GameObject.Find("PikuDestination").GetComponent<Transform>();
