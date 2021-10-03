@@ -15,6 +15,8 @@ public class Flow_Manager : MonoBehaviour
     public GameObject[] pikuUi;
     private Piku_Manager pikuManager;
     public GameObject startText;
+    public AudioSource musicManager;
+    public AudioClip intro01, intro02, intro03, music;
 
     void Start()
     {
@@ -31,6 +33,10 @@ public class Flow_Manager : MonoBehaviour
         yield return new WaitWhile(() => !Input.anyKeyDown);
         startText.SetActive(false);
 
+        musicManager.clip = intro01;
+        musicManager.Play();
+        StartCoroutine(AudioSwitch1());
+
         yield return new WaitForSeconds(3);
         captain.SetActive(true);
 
@@ -46,6 +52,8 @@ public class Flow_Manager : MonoBehaviour
         }
         captain.GetComponent<Animator>().SetTrigger("Exit");
 
+        StartCoroutine(AudioSwitch2());
+
         yield return new WaitForSeconds(0.2f);
 
         effects.SetBool("Start", true);
@@ -60,9 +68,26 @@ public class Flow_Manager : MonoBehaviour
         captain.SetActive(false);
 
     }
+    IEnumerator AudioSwitch1()
+    {
+        yield return new WaitForSeconds(musicManager.clip.length);
+        musicManager.clip = intro02;
+        musicManager.Play();
+
+    }
+    IEnumerator AudioSwitch2()
+    {
+        musicManager.clip = intro03;
+        musicManager.Play();
+        yield return new WaitForSeconds(musicManager.clip.length);
+        musicManager.clip = music;
+        musicManager.Play();
+
+    }
+
     IEnumerator GameOver(float time)
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         gameOver.SetActive(true);
         yield return new WaitForSeconds(2);
         yield return new WaitWhile(() => !Input.anyKeyDown);
