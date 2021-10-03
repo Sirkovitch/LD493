@@ -69,6 +69,7 @@ public class Piku_Activate : MonoBehaviour
         {
             transform.parent = null;
         }
+
     }
 
     IEnumerator ActivateCol(float time)

@@ -16,6 +16,8 @@ public class Plane_Manager : MonoBehaviour
     private Piku_Manager pikuManager;
     private Flow_Manager flowManager;
 
+    private bool collided = false;
+
     private bool engineRBroken, engineLBroken, problem;
 
     void Start()
@@ -32,7 +34,14 @@ public class Plane_Manager : MonoBehaviour
 
     void Update()
     {
+        if (pikuParent.childCount == 0 && pikuManager.allPiku == true)
+        {
+            this.GetComponent<Collider>().isTrigger = false;
+            this.GetComponent<Rigidbody>().isKinematic = false;
+        }
+
         Transform[] pikus = pikuParent.transform.GetComponentsInChildren<Transform>();
+
         if (pikus.Length > 1 && pikuManager.allPiku == true)
         {
             foreach (Transform piku in pikus)
@@ -62,12 +71,16 @@ public class Plane_Manager : MonoBehaviour
         {
             tiltValue = tiltValue + 0.175f;
         }
+        if (collided == true)
+        {
+            tiltValue = 0;
+        }
 
 
 
         this.transform.Rotate(0, 0, tiltValue, Space.Self);
 
-        if (flowManager.start == true)
+        if (flowManager.start == true || collided == true)
         {
             velocity = new Vector3(Mathf.Clamp(1 - this.transform.localRotation.z * 100, -50, 10), -1, 20);
         }
@@ -124,5 +137,15 @@ public class Plane_Manager : MonoBehaviour
             problem = false;
         }
 
+    }
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.tag == "Obstacle")
+        {
+            this.GetComponent<Collider>().isTrigger = false;
+            this.GetComponent<Rigidbody>().isKinematic = false;
+            collided = true;
+            pikuParent.DetachChildren();
+        }
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - EndZone
   - Plane
   - Obstacle
+  - Arrival
   layers:
   - Default
   - TransparentFX

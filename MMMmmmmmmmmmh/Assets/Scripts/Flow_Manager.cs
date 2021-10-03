@@ -23,7 +23,7 @@ public class Flow_Manager : MonoBehaviour
         yield return new WaitForSeconds(1);
         yield return new WaitWhile(() => !Input.anyKeyDown);
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         captain.SetActive(true);
 
         yield return new WaitForSeconds(1);
