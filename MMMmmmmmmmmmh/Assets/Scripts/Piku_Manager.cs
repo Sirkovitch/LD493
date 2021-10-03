@@ -18,6 +18,8 @@ public class Piku_Manager : MonoBehaviour
     private int spawnedPiku = 0;
     private Flow_Manager flowManager;
 
+    
+
 
     void Start()
     {
