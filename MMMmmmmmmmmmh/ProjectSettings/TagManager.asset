@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wing
   - EndZone
+  - Plane
+  - Obstacle
   layers:
   - Default
   - TransparentFX
