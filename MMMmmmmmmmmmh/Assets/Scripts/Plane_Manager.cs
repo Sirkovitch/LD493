@@ -12,11 +12,12 @@ public class Plane_Manager : MonoBehaviour
     private float playArea;
     private float globalPos = 0;
     public float tiltValue;
-    private Vector3 velocity;
+    private Vector3 velocity, myVelocity;
     private Piku_Manager pikuManager;
     private Flow_Manager flowManager;
 
     private bool collided = false;
+    private bool landing = false;
 
     private bool engineRBroken, engineLBroken, problem;
 
@@ -30,6 +31,7 @@ public class Plane_Manager : MonoBehaviour
         engineLBroken = false;
         problem = false;
         flowManager = GameObject.Find("FlowManager").GetComponent<Flow_Manager>();
+        myVelocity = new Vector3(0, 0, 20);
     }
 
     void Update()
@@ -71,24 +73,31 @@ public class Plane_Manager : MonoBehaviour
         {
             tiltValue = tiltValue + 0.175f;
         }
-        if (collided == true)
+        if (collided == true || landing == true)
         {
             tiltValue = 0;
+            //this.transform.eulerAngles = new Vector3(0, 0, 0);
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.identity, 0.01f);
         }
 
 
 
         this.transform.Rotate(0, 0, tiltValue, Space.Self);
 
-        if (flowManager.start == true || collided == true)
+        if (flowManager.start == true && collided == false && landing == false)
         {
             velocity = new Vector3(Mathf.Clamp(1 - this.transform.localRotation.z * 100, -50, 10), -1, 20);
         }
-        else
+        else if (landing == true)
         {
-            velocity = new Vector3(0,0,0);
+            velocity = Vector3.Lerp(myVelocity, new Vector3(0,0,0),0.01f);
+            myVelocity = velocity;
         }
-        
+           else
+        {
+            velocity = new Vector3(0, 0, 0);
+        }
+
         transform.Translate(velocity * Time.deltaTime, Space.World);
 
         //Broken Engines
@@ -146,6 +155,10 @@ public class Plane_Manager : MonoBehaviour
             this.GetComponent<Rigidbody>().isKinematic = false;
             collided = true;
             pikuParent.DetachChildren();
+        }
+        if (col.tag == "Arrival")
+        {
+            landing = true;
         }
     }
 }

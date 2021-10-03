@@ -279,7 +279,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorHigh: {r: 0.32891065, g: 0.4056604, b: 0.13203098, a: 1}
     - _ColorLow: {r: 0.40906417, g: 0.4862745, b: 0.19607845, a: 1}
-    - _ColorLow2: {r: 0.42673114, g: 0.5188679, b: 0.19335172, a: 1}
+    - _ColorLow2: {r: 0.32659063, g: 0.4245283, b: 0.07008721, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _Distant: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
