@@ -65,6 +65,10 @@ public class Piku_Activate : MonoBehaviour
             transform.localPosition = new Vector3(Mathf.Lerp(transform.localPosition.x,destination.localPosition.x+randPos,randSpeed), transform.localPosition.y, transform.localPosition.z);
 
         }
+        if (Mathf.Abs(transform.rotation.z) > 0.48 )
+        {
+            transform.parent = null;
+        }
     }
 
     IEnumerator ActivateCol(float time)
