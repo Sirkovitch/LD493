@@ -40,8 +40,8 @@ public class CameraController : MonoBehaviour
 
         if (moveCam == true)
         {
-            transform.position = Vector3.Lerp(transform.position, initTransform, 0.025f);
-            transform.rotation = Quaternion.Lerp(transform.rotation, initRot, 0.025f);
+            transform.position = Vector3.Lerp(transform.position, initTransform, 0.035f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, initRot, 0.035f);
         }
         if (transform.position.x-initTransform.x < 0.01)
         {

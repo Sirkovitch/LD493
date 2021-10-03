@@ -15,8 +15,8 @@ MonoBehaviour:
   active: 1
   m_AdvancedMode: 0
   rotation:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 233
     min: 0
     max: 360
   skyIntensityMode:
@@ -56,7 +56,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   procedural:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   flowmap:
     m_OverrideState: 0
@@ -65,13 +65,13 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   scrollDirection:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 360
     min: 0
     max: 360
   scrollSpeed:
-    m_OverrideState: 0
-    m_Value: 2
+    m_OverrideState: 1
+    m_Value: 12.2
     min: 0
   enableBackplate:
     m_OverrideState: 0
