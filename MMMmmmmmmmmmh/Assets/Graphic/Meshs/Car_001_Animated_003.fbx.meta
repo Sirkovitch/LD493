@@ -1,18 +1,31 @@
 fileFormatVersion: 2
-guid: c3c26fb29668be646a34557511c6069e
+guid: d0d8f882cd75349438fef62ce7492fcc
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 5272709045292759581
+    second: Car_Wheels|Road_loop_02
+  - first:
+      74: -1458564848729032078
+    second: Car_Wheels|Action.001
+  - first:
+      74: -6171931395676945105
+    second: Car_Wheels|Action.002
+  - first:
+      74: 3116614374583467156
+    second: Car_Wheels|Action.003
+  - first:
+      74: -1574940712401283699
+    second: Car_Wheels|Road_loop_02
+  - first:
+      74: -1574940712401283699
+    second: Car_Wheels|Road_Loop_02
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: TT_checker_512x512_UV_GRID
-    second: {fileID: 2100000, guid: ef8c4b1596fadf24197b6ccfa170eac0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TT_checker_512x512_UV_GRID.002
+      name: TT_checker_512x512_UV_GRID.001
     second: {fileID: 2100000, guid: ef8c4b1596fadf24197b6ccfa170eac0, type: 2}
   materials:
     materialImportMode: 2
@@ -33,14 +46,43 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Car_Wheels|Road_Loop_02
+      takeName: Car_Wheels|Action.004
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 799
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
