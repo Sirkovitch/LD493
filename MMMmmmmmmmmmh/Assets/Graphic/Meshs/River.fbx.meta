@@ -1,49 +1,9 @@
 fileFormatVersion: 2
-guid: 98e8234829b45094d977aa9e69d7f8c8
+guid: 7a1deb55fba5f844e9ff77e16fcaff4c
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Airport
-    second: {fileID: 2100000, guid: 3db0257638834a04d83685dd69359f38, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cars
-    second: {fileID: 2100000, guid: ef8c4b1596fadf24197b6ccfa170eac0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Environment01
-    second: {fileID: 2100000, guid: 923d0791eff3ae745b449af68cd8e4ac, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Fields
-    second: {fileID: 2100000, guid: c72e2ea1d6ec60e4280a25c8818d0e9b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Houses
-    second: {fileID: 2100000, guid: 9c972d753b36754419a4b4bde4dcada1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TT_checker_512x512_UV_GRID
-    second: {fileID: 2100000, guid: ef8c4b1596fadf24197b6ccfa170eac0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TT_checker_512x512_UV_GRID_1
-    second: {fileID: 2100000, guid: ef8c4b1596fadf24197b6ccfa170eac0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tree_01
-    second: {fileID: 2100000, guid: 813fb08a6fa3cde46a03a79a3f4b0f4f, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
