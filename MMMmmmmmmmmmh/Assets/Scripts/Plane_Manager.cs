@@ -14,6 +14,7 @@ public class Plane_Manager : MonoBehaviour
     public float tiltValue;
     private Vector3 velocity;
     private Piku_Manager pikuManager;
+    private Flow_Manager flowManager;
 
     private bool engineRBroken, engineLBroken, problem;
 
@@ -26,6 +27,7 @@ public class Plane_Manager : MonoBehaviour
         engineRBroken = false;
         engineLBroken = false;
         problem = false;
+        flowManager = GameObject.Find("FlowManager").GetComponent<Flow_Manager>();
     }
 
     void Update()
@@ -41,6 +43,10 @@ public class Plane_Manager : MonoBehaviour
             tiltValue = globalPos / playArea;
             tiltValue = -tiltValue*3;
             globalPos = 0;
+        }
+        else
+        {
+            tiltValue = 0;
         }
 
         if (pikus.Length > 1)
@@ -61,11 +67,19 @@ public class Plane_Manager : MonoBehaviour
 
         this.transform.Rotate(0, 0, tiltValue, Space.Self);
 
-        velocity = new Vector3(Mathf.Clamp(1-this.transform.localRotation.z*100,-50,10), -1, 20);
+        if (flowManager.start == true)
+        {
+            velocity = new Vector3(Mathf.Clamp(1 - this.transform.localRotation.z * 100, -50, 10), -1, 20);
+        }
+        else
+        {
+            velocity = new Vector3(0,0,0);
+        }
+        
         transform.Translate(velocity * Time.deltaTime, Space.World);
 
         //Broken Engines
-        if (problem == false)
+        if (problem == false && flowManager.start == true)
         {
             StartCoroutine(EngineProblem(Random.value*5+5));
         }
