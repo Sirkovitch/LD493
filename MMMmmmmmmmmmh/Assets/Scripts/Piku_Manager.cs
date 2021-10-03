@@ -16,6 +16,7 @@ public class Piku_Manager : MonoBehaviour
     public bool allPiku = false;
     private Vector3 spawnZoneSize, spawnPos, spawnZoneCenter;
     private int spawnedPiku = 0;
+    private Flow_Manager flowManager;
 
 
     void Start()
@@ -25,8 +26,7 @@ public class Piku_Manager : MonoBehaviour
         spawnZoneSize = spawnZone.GetComponent<Collider>().bounds.size;
         spawnZoneCenter = spawnZone.GetComponent<Collider>().bounds.center;
 
-        InvokeRepeating("SpawnPiku", 1f, 0.1f);
-        trap.SetBool("Open", true);
+        flowManager = GameObject.Find("FlowManager").GetComponent<Flow_Manager>();
 
 
     }
@@ -49,6 +49,13 @@ public class Piku_Manager : MonoBehaviour
  
     void Update()
     {
+        if (flowManager.releasePikus == true)
+        {
+            InvokeRepeating("SpawnPiku", 1f, 0.1f);
+            trap.SetBool("Open", true);
+            flowManager.releasePikus = false;
+        }
+
         if (spawnedPiku >= pikuNum)
         {
             CancelInvoke();
