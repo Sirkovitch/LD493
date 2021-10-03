@@ -34,21 +34,22 @@ public class Plane_Manager : MonoBehaviour
             }
             globalPos = globalPos / (pikus.Length - 1);
             tiltValue = globalPos / playArea;
-            tiltValue = -tiltValue;
+            tiltValue = -tiltValue*3;
             globalPos = 0;
         }
 
         if (pikus.Length > 1)
         {
-            tiltValue = Mathf.Lerp(tiltValue, tiltValue * 0.1f, Mathf.Clamp(Mathf.Abs(this.transform.localRotation.z) * 2, 0, 1));
+            tiltValue = Mathf.Lerp(tiltValue, tiltValue * 0.1f, Mathf.Clamp((Mathf.Abs(this.transform.localRotation.z)-0.3f) * 2, 0, 1));
         }
 
-        var lerpValue = 0.02f;
-        lerpValue = Mathf.Lerp(0.0000001f, 0.5f, (pikus.Length - 1) / 25);
-        var rotateValue = tiltValue;
-        rotateValue = Mathf.Lerp(tiltValue*0.5f,tiltValue, (pikus.Length - 1) / 25);
+        //var lerpValue = 0.02f;
+        //lerpValue = Mathf.Lerp(0.0000001f, 0.5f, (pikus.Length - 1) / 15);
+        //var rotateValue = tiltValue;
+        //rotateValue = Mathf.Lerp(tiltValue+0.5f,tiltValue, (pikus.Length - 1) / 15);
 
-        rotationDegree = Mathf.Lerp(rotationDegree, rotateValue, lerpValue);
+        //rotationDegree = Mathf.Lerp(rotationDegree, rotateValue, lerpValue);
+
         this.transform.Rotate(0, 0, tiltValue, Space.Self);
 
         velocity = new Vector3(Mathf.Clamp(1-this.transform.localRotation.z*100,-50,10), -1, 20);
