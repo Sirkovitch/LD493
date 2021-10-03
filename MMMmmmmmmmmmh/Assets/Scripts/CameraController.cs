@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     private Transform plane;
-    public Vector3 initTransform = new Vector3(0f, 9.7f, -12.7f);
+    public Vector3 initTransform = new Vector3(0f, 13.26f, -19.54f);
     private Vector3 planePos;
     private Vector3 planeDist;
     public Transform menuCam;
@@ -37,6 +37,7 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
+
         if (moveCam == true)
         {
             transform.position = Vector3.Lerp(transform.position, initTransform, 0.025f);
