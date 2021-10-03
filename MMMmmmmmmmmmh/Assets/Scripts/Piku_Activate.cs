@@ -65,7 +65,7 @@ public class Piku_Activate : MonoBehaviour
             transform.localPosition = new Vector3(Mathf.Lerp(transform.localPosition.x,destination.localPosition.x+randPos,randSpeed), transform.localPosition.y, transform.localPosition.z);
 
         }
-        if (Mathf.Abs(transform.rotation.z) > 0.48 )
+        if (Mathf.Abs(transform.rotation.z) > Mathf.Lerp(0.7f, 0.4f, Mathf.Clamp01(Mathf.Abs(transform.localPosition.x) / 10)))
         {
             transform.parent = null;
         }

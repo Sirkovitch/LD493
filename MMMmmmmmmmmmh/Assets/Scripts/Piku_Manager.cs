@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Piku_Manager : MonoBehaviour
 {
+    public bool gameOver = false;
     public int pikuNum;
     public GameObject pikuPrefab;
     public GameObject spawnZone;
@@ -19,6 +20,8 @@ public class Piku_Manager : MonoBehaviour
 
     void Start()
     {
+        gameOver = false;
+        
         spawnZoneSize = spawnZone.GetComponent<Collider>().bounds.size;
         spawnZoneCenter = spawnZone.GetComponent<Collider>().bounds.center;
 
@@ -52,6 +55,10 @@ public class Piku_Manager : MonoBehaviour
             trap.SetBool("Open", false);
             StartCoroutine(startDelay(2f));
 
+        }
+        if (allPiku == true && pikuZone.childCount == 0)
+        {
+            gameOver = true;
         }
     }
     IEnumerator startDelay(float time)

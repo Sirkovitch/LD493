@@ -42,6 +42,10 @@ public class Plane_Manager : MonoBehaviour
             tiltValue = -tiltValue*3;
             globalPos = 0;
         }
+        else
+        {
+            tiltValue = 0;
+        }
 
         if (pikus.Length > 1)
         {
