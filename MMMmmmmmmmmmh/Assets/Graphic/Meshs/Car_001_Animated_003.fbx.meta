@@ -14,7 +14,7 @@ ModelImporter:
     second: Car_Wheels|Action.002
   - first:
       74: 3116614374583467156
-    second: Car_Wheels|Action.003
+    second: Car_Wheels|Road_Loop_02
   - first:
       74: -1574940712401283699
     second: Car_Wheels|Road_loop_02
@@ -59,7 +59,7 @@ ModelImporter:
       takeName: Car_Wheels|Action.004
       internalID: 0
       firstFrame: 0
-      lastFrame: 799
+      lastFrame: 1199
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
