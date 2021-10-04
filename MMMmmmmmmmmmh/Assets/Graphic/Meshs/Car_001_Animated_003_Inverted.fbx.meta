@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: d0d8f882cd75349438fef62ce7492fcc
+guid: 5cf98fb533d167842be7bef2bfe0ffcb
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: 5272709045292759581
-    second: Car_Wheels|Road_loop_02
+    second: Car_Wheels|Action
   - first:
       74: -1458564848729032078
     second: Car_Wheels|Action.001
@@ -14,22 +14,14 @@ ModelImporter:
     second: Car_Wheels|Action.002
   - first:
       74: 3116614374583467156
-    second: Car_Wheels|Road_Loop_02
+    second: Car_Wheels|Road_Loop_02_Inverted
   - first:
       74: -1574940712401283699
-    second: Car_Wheels|Road_loop_02
+    second: Car_Wheels|Action.004
   - first:
-      74: -1574940712401283699
-    second: Car_Wheels|Road_Loop_02
-  - first:
-      74: 4472147750955043718
-    second: Car_Wheels|Road_Loop_02_Invert
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TT_checker_512x512_UV_GRID.001
-    second: {fileID: 2100000, guid: ef8c4b1596fadf24197b6ccfa170eac0, type: 2}
+      74: -1119373524129120043
+    second: Car_Wheels|Action.005
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -58,8 +50,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Car_Wheels|Road_Loop_02
-      takeName: Car_Wheels|Action.004
+      name: Car_Wheels|Road_Loop_02_Inverted
+      takeName: Car_Wheels|Action.003
       internalID: 0
       firstFrame: 0
       lastFrame: 1199
@@ -69,7 +61,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
