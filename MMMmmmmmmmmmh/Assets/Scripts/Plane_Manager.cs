@@ -19,6 +19,7 @@ public class Plane_Manager : MonoBehaviour
     private bool collided = false;
     private bool nearEnd = false;
     public bool landing = false;
+    private float initDelay = 3;
 
     private bool engineRBroken, engineLBroken, problem;
 
@@ -111,14 +112,15 @@ public class Plane_Manager : MonoBehaviour
     IEnumerator EngineProblem(float time)
     {
         problem = true;
-
+        yield return new WaitForSeconds(initDelay);
+        initDelay = 0;
         yield return new WaitForSeconds(time);
 
         if (Random.value > 0.5)
         {
             engineR.SetBool("Broken", true);
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(4);
 
             engineRBroken = true;
             engineR.SetBool("Boum", true);
