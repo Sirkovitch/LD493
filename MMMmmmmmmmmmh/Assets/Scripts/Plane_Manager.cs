@@ -17,7 +17,8 @@ public class Plane_Manager : MonoBehaviour
     private Flow_Manager flowManager;
 
     private bool collided = false;
-    private bool landing = false;
+    private bool nearEnd = false;
+    public bool landing = false;
 
     private bool engineRBroken, engineLBroken, problem;
 
@@ -101,7 +102,7 @@ public class Plane_Manager : MonoBehaviour
         transform.Translate(velocity * Time.deltaTime, Space.World);
 
         //Broken Engines
-        if (problem == false && flowManager.start == true)
+        if (problem == false && flowManager.start == true && nearEnd == false)
         {
             StartCoroutine(EngineProblem(Random.value*5+5));
         }
@@ -159,6 +160,10 @@ public class Plane_Manager : MonoBehaviour
         if (col.tag == "Arrival")
         {
             landing = true;
+        }
+        if (col.tag == "nearEnd")
+        {
+            nearEnd = true;
         }
     }
 }

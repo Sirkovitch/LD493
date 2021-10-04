@@ -9,6 +9,7 @@ TagManager:
   - Plane
   - Obstacle
   - Arrival
+  - nearEnd
   layers:
   - Default
   - TransparentFX

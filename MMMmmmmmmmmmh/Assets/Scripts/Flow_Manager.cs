@@ -11,9 +11,11 @@ public class Flow_Manager : MonoBehaviour
     private Animator effects;
     public GameObject captain;
     public GameObject gameOver;
+    public GameObject win;
     public GameObject[] texts;
     public GameObject[] pikuUi;
     private Piku_Manager pikuManager;
+    private Plane_Manager planeManager;
     public GameObject startText;
     public AudioSource musicManager;
     public AudioClip intro01, intro02, intro03, music;
@@ -21,6 +23,7 @@ public class Flow_Manager : MonoBehaviour
     void Start()
     {
         pikuManager = GameObject.Find("Piku_Manager").GetComponent<Piku_Manager>();
+        planeManager = GameObject.Find("Plane").GetComponent<Plane_Manager>();
         effects = GameObject.Find("Effects").GetComponent<Animator>();
         start = false;
         releasePikus = false;
@@ -93,12 +96,24 @@ public class Flow_Manager : MonoBehaviour
         yield return new WaitWhile(() => !Input.anyKeyDown);
         SceneManager.LoadScene("Game");
     }
+    IEnumerator Win(float time)
+    {
+        yield return new WaitForSeconds(3);
+        win.SetActive(true);
+        yield return new WaitForSeconds(2);
+        yield return new WaitWhile(() => !Input.anyKeyDown);
+        SceneManager.LoadScene("Game");
+    }
 
     void Update()
     {
         if (pikuManager.gameOver == true)
         {
             StartCoroutine(GameOver(5f));
+        }
+        if (planeManager.landing == true)
+        {
+            StartCoroutine(Win(5f));
         }
     }
 }
