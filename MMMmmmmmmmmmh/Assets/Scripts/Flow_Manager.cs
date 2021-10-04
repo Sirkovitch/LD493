@@ -19,6 +19,7 @@ public class Flow_Manager : MonoBehaviour
     public GameObject startText;
     public AudioSource musicManager;
     public AudioClip intro01, intro02, intro03, music;
+    public AudioClip[] speechs;
 
     void Start()
     {
@@ -47,6 +48,8 @@ public class Flow_Manager : MonoBehaviour
         int numTexts = texts.Length;
         for(int i = 0; i< numTexts; i++)
         {
+            this.GetComponent<AudioSource>().clip = speechs[Random.Range(0,speechs.Length)];
+            this.GetComponent<AudioSource>().Play();
             captain.GetComponent<Animator>().SetTrigger("Talk");
             texts[i].SetActive(true);
             yield return new WaitWhile (() => !Input.anyKeyDown);
@@ -61,14 +64,21 @@ public class Flow_Manager : MonoBehaviour
 
         effects.SetBool("Start", true);
         start = true;
+        //releasePikus = true;
+        //foreach ( GameObject pikui in pikuUi)
+        //{
+        //    pikui.SetActive(true);
+        //}
+
+        yield return new WaitForSeconds(1f);
+        captain.SetActive(false);
+
+        yield return new WaitForSeconds(2);
         releasePikus = true;
         foreach ( GameObject pikui in pikuUi)
         {
             pikui.SetActive(true);
         }
-
-        yield return new WaitForSeconds(1f);
-        captain.SetActive(false);
 
     }
     IEnumerator AudioSwitch1()
@@ -90,7 +100,7 @@ public class Flow_Manager : MonoBehaviour
 
     IEnumerator GameOver(float time)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         gameOver.SetActive(true);
         yield return new WaitForSeconds(2);
         yield return new WaitWhile(() => !Input.anyKeyDown);
