@@ -20,6 +20,7 @@ public class Flow_Manager : MonoBehaviour
     public AudioSource musicManager;
     public AudioClip intro01, intro02, intro03, music;
     public AudioClip[] speechs;
+    public AudioClip yay;
 
     void Start()
     {
@@ -75,6 +76,8 @@ public class Flow_Manager : MonoBehaviour
 
         yield return new WaitForSeconds(2);
         releasePikus = true;
+        this.GetComponent<AudioSource>().clip = yay;
+        this.GetComponent<AudioSource>().Play();
         foreach ( GameObject pikui in pikuUi)
         {
             pikui.SetActive(true);
