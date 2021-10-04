@@ -92,6 +92,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 17b6a2ff8396a2d4999b79bd343efc3c, type: 3}
   - {fileID: 8300000, guid: 93bbe48e287298b45b7b1d818649c6bf, type: 3}
   - {fileID: 8300000, guid: 631771ba4416f414a8ce615654c13136, type: 3}
+  steps:
+  - {fileID: 8300000, guid: 86ef65a12d7c3bb4e97dce073f00318b, type: 3}
+  - {fileID: 8300000, guid: e0b36879e66cf9b46850a0b1b8d7180d, type: 3}
+  - {fileID: 8300000, guid: 837e706527d17ca4b955e0b010d7c7c7, type: 3}
+  - {fileID: 8300000, guid: 8116db6d082685c44b118f2957d2dfd1, type: 3}
+  - {fileID: 8300000, guid: 50a1b60f0aa3a8c4c911545e90c51fdd, type: 3}
 --- !u!65 &2713433442951752381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -117,14 +123,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3391640680424650301, guid: 684edc6155bd72c44a8dfc3da66dc5a1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 5
+  DopplerLevel: 1
   MinDistance: 20
   MaxDistance: 150
   Pan2D: 0

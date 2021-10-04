@@ -20,6 +20,7 @@ public class Plane_Manager : MonoBehaviour
     private bool nearEnd = false;
     public bool landing = false;
     private float initDelay = 3;
+    public AudioClip explode;
 
     private bool engineRBroken, engineLBroken, problem;
 
@@ -92,7 +93,7 @@ public class Plane_Manager : MonoBehaviour
         }
         else if (landing == true)
         {
-            velocity = Vector3.Lerp(myVelocity, new Vector3(0,0,0),0.01f);
+            velocity = Vector3.Lerp(myVelocity, new Vector3(0,0,0),0.005f);
             myVelocity = velocity;
         }
            else
@@ -152,12 +153,15 @@ public class Plane_Manager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "Obstacle")
+        if (col.tag == "Obstacle" && collided == false)
         {
             this.GetComponent<Collider>().isTrigger = false;
             this.GetComponent<Rigidbody>().isKinematic = false;
             collided = true;
             pikuParent.DetachChildren();
+            this.GetComponent<AudioSource>().clip = explode;
+            this.GetComponent<AudioSource>().Play();
+            this.GetComponent<AudioSource>().loop = false;
         }
         if (col.tag == "Arrival")
         {

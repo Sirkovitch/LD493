@@ -11,12 +11,15 @@ public class Piku_Activate : MonoBehaviour
     public Renderer rend;
     public Animator anim;
     public AudioClip[] screams;
+    public AudioClip[] steps;
 
     bool canCollide = false;
     bool canMove = false;
     private Transform destination;
     private float randPos;
     private float randSpeed;
+
+    private bool stepping = false;
 
     private bool screamed = false;
 
@@ -25,7 +28,6 @@ public class Piku_Activate : MonoBehaviour
     {
         var randScale = Random.value * 0.4f;
         this.transform.localScale = new Vector3(this.transform.localScale.x + randScale, this.transform.localScale.y + randScale, this.transform.localScale.z + randScale);
-
 
         rend.material = materials[Random.Range(0, materials.Length)];
         
@@ -64,8 +66,28 @@ public class Piku_Activate : MonoBehaviour
             var direction = (destination.localPosition.x + randPos) - transform.localPosition.x;
             anim.SetFloat("Blend", direction / 1);
 
+            if (transform.parent != null && Mathf.Abs(direction) > 0.5 && stepping == false)
+            {
+                if (Random.value>0.95f)
+                {
+                    this.GetComponent<AudioSource>().loop = true;
+                    this.GetComponent<AudioSource>().clip = steps[Random.Range(0, steps.Length)];
+                    this.GetComponent<AudioSource>().Play();
+                }
+                stepping = true;
+            }
+            else
+            {
+                this.GetComponent<AudioSource>().loop = false;
+                stepping = false;
+            }
+            if (transform.parent == null)
+            {
+                this.GetComponent<AudioSource>().loop = false;
+                stepping = false;
+            }
 
-            transform.localPosition = new Vector3(Mathf.Lerp(transform.localPosition.x,destination.localPosition.x+randPos,randSpeed), transform.localPosition.y, transform.localPosition.z);
+                transform.localPosition = new Vector3(Mathf.Lerp(transform.localPosition.x,destination.localPosition.x+randPos,randSpeed), transform.localPosition.y, transform.localPosition.z);
 
         }
         if (Mathf.Abs(transform.rotation.z) > Mathf.Lerp(0.7f, 0.55f, Mathf.Clamp01(Mathf.Abs(transform.localPosition.x) / 10)))
@@ -75,6 +97,8 @@ public class Piku_Activate : MonoBehaviour
         if (transform.parent == null && screamed == false)
         {
             this.GetComponent<AudioSource>().clip = screams[Random.Range(0, screams.Length)];
+            this.GetComponent<AudioSource>().volume = 1;
+            this.GetComponent<AudioSource>().loop = false;
             this.GetComponent<AudioSource>().Play();
             screamed = true;
         }
