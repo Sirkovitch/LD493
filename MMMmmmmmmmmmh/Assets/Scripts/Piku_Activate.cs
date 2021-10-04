@@ -10,12 +10,15 @@ public class Piku_Activate : MonoBehaviour
     public Material[] materials;
     public Renderer rend;
     public Animator anim;
+    public AudioClip[] screams;
 
     bool canCollide = false;
     bool canMove = false;
     private Transform destination;
     private float randPos;
     private float randSpeed;
+
+    private bool screamed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -65,9 +68,15 @@ public class Piku_Activate : MonoBehaviour
             transform.localPosition = new Vector3(Mathf.Lerp(transform.localPosition.x,destination.localPosition.x+randPos,randSpeed), transform.localPosition.y, transform.localPosition.z);
 
         }
-        if (Mathf.Abs(transform.rotation.z) > Mathf.Lerp(0.7f, 0.4f, Mathf.Clamp01(Mathf.Abs(transform.localPosition.x) / 10)))
+        if (Mathf.Abs(transform.rotation.z) > Mathf.Lerp(0.7f, 0.55f, Mathf.Clamp01(Mathf.Abs(transform.localPosition.x) / 10)))
         {
             transform.parent = null;
+        }
+        if (transform.parent == null && screamed == false)
+        {
+            this.GetComponent<AudioSource>().clip = screams[Random.Range(0, screams.Length)];
+            this.GetComponent<AudioSource>().Play();
+            screamed = true;
         }
 
     }
